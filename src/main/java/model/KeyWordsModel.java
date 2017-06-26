@@ -3,10 +3,10 @@ package model;
 import org.json.simple.JSONObject;
 
 import apps.appsProxy;
+import check.formHelper;
+import check.formHelper.formdef;
+import database.DBHelper;
 import database.db;
-import esayhelper.DBHelper;
-import esayhelper.formHelper;
-import esayhelper.formHelper.formdef;
 
 public class KeyWordsModel {
 	private static DBHelper KeyWords;
