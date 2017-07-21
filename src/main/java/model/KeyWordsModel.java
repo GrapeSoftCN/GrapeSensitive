@@ -9,14 +9,12 @@ import database.DBHelper;
 import database.db;
 
 public class KeyWordsModel {
-	private static DBHelper KeyWords;
-	private static formHelper form;
-	static {
-		KeyWords = new DBHelper(appsProxy.configValue().get("db").toString(), "SensitiveWords");
-		form = KeyWords.getChecker();
-	}
+	private DBHelper KeyWords;
+	private formHelper form;
 
 	public KeyWordsModel() {
+		KeyWords = new DBHelper(appsProxy.configValue().get("db").toString(), "SensitiveWords");
+		form = KeyWords.getChecker();
 		form.putRule("content", formdef.notNull);
 	}
 

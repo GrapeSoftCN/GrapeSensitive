@@ -12,10 +12,10 @@ import model.KeyWordsModel;
 import nlogger.nlogger;
 
 public class KeyWords {
-	private static JSONObject _obj;
-	private static KeyWordsModel model;
-	private static redis redis;
-	static {
+	private JSONObject _obj;
+	private KeyWordsModel model;
+	private redis redis;
+	public KeyWords() {
 		_obj = new JSONObject();
 		model = new KeyWordsModel();
 		redis = new redis();
@@ -187,7 +187,7 @@ public class KeyWords {
 		try {
 			array = new JSONArray();
 			if (redis.get("KeyWords") != null) {
-				array = redis.get("KeyWords");
+				array = JSONArray.toJSONArray(redis.get("KeyWords"));
 			} else {
 				array = model.getdb().field("content").select();
 				redis.set("KeyWords", array);
